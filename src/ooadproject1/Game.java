@@ -49,25 +49,25 @@ public abstract class Game extends PlayableGame{
      int getAgeRating() {
         return ageRating;
     }
-     public void setGameName(String name)
+     public void setGameName(String gameName)
     {
-        gameName = name;
+        this.gameName = gameName;
     }
     public void setYearReleased(String yearReleased)
     {
         this.yearReleased = yearReleased;
     }
-    public void setGameDescription(String desc)
+    public void setGameDescription(String gameDesc)
     {
-        gameDescription = desc;
+        gameDescription = gameDesc;
     }
     public void setAgeRating(int ageRate)
     {
         ageRating = ageRate;
     }
-    public void setBoxArt(BufferedImage bI)
+    public void setBoxArt(BufferedImage boxArt)
     {
-        boxArt = bI;
+        this.boxArt = boxArt;
     }
     public void sumbitChildRating(float rating, int childId)
     {

@@ -29,9 +29,9 @@ public abstract class Person {
         else
         return false;
     }
-    public Boolean chkIsAdmin(Boolean adMin)
+    public Boolean chkIsAdmin(Boolean isAdmin)
     {
-        if(adMin == true)
+        if(isAdmin == true)
             return true;
         else 
             return false;

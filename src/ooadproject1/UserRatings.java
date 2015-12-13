@@ -13,7 +13,7 @@ public abstract class UserRatings {
     float rating;
     float totalRating;
     Stats myStats;
-    int noOfRatings;
+    int numOfRatings;
     String ratings;
 
     public void sumbitRating(float rate){
@@ -30,7 +30,7 @@ public abstract class UserRatings {
     }
     public void setNoOfRatings(int noRate)
     {
-        noOfRatings = noRate;
+        numOfRatings = noRate;
     }
     public void addToTotalRating(float tR)
     {
@@ -42,6 +42,6 @@ public abstract class UserRatings {
     }
     public int getNoOfRatings()
     {
-        return noOfRatings;
+        return numOfRatings;
     }
 }

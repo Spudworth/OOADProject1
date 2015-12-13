@@ -10,7 +10,7 @@ package ooadproject1;
  * @author Lenovo G50
  */
 public interface Ratings {
-     public void setRatings(float f);
+    public void setRatings(float f);
     public void setNoRatings(int i);
     public int getNoRating();
     public float getRating();
