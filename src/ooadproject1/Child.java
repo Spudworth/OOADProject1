@@ -13,8 +13,35 @@ public class Child extends Person {
     private int age;
     private int childId;
     
-    public Child()
+    public Child(int age, int childId)
     {
         
+        this.age = age;
+        this.childId = childId;
+        
+    }
+    
+    public void setAge(int playerAge) {
+    
+        this.age = playerAge;
+    
+    }
+    
+    public void setChildId(int childPlayerId) {
+    
+        this.childId = childPlayerId;
+    
+    }
+    
+    public int getAge() {
+    
+        return age;
+    
+    }
+    
+    public int getChildId() {
+    
+        return childId;
+    
     }
 }
