@@ -14,34 +14,37 @@ public abstract class UserRatings {
     float totalRating;
     Stats myStats;
     int numOfRatings;
-    String ratings;
+    String comment;
 
     public void sumbitRating(float rate){
-        setNoOfRatings(getNoOfRatings()+1);
+        setNumOfRatings(getNumOfRatings()+1);
         totalRating += rate;
-        rating = myStats.getAverage(totalRating, getNoOfRatings());
+        rating = myStats.getAverage(totalRating, getNumOfRatings());
     }
-    public void submitRating(String rates){
-        ratings = rates;
+    public void submitRating(String ratingComment){
+        comment = ratingComment;
     }
-    public void setRating(float rater)
+    public void setRating(float rating)
     {
-        rating = rater;
+        this.rating = rating;
     }
-    public void setNoOfRatings(int noRate)
+    public void setNumOfRatings(int numOfRatings)
     {
-        numOfRatings = noRate;
+        this.numOfRatings = numOfRatings;
     }
-    public void addToTotalRating(float tR)
+    public void addToTotalRating(float totalRating)
     {
-        totalRating = tR;
+        this.totalRating = totalRating;
     }
     public float getRating()
     {
         return rating;
     }
-    public int getNoOfRatings()
+    public int getNumOfRatings()
     {
         return numOfRatings;
+    }
+    public String getComment(){
+        return comment;
     }
 }

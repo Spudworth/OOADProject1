@@ -14,13 +14,13 @@ public abstract class Person {
     private String passsword;
     private Boolean IsAdmin;
     private Boolean IsChild;
-      public void setUserName(String usersName)
+      public void setUserName(String userName)
     {
-        userName = usersName;
+        this.userName = userName;
     }
-    public void setPassword(String userPass)
+    public void setPassword(String userPassword)
     {
-        passsword = userPass;
+        passsword = userPassword;
     }
     public  Boolean chkIsChild(Boolean IsChild)
     {

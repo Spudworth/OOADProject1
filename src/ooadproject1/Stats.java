@@ -10,9 +10,9 @@ package ooadproject1;
  * @author Lenovo G50
  */
 public class Stats {
-    public float getAverage(float s, int f)
+    public float getAverage(float totaleRating, int numOfRatings)
     {
-        float d = s / f;
-        return d;
+        float averageRating = totaleRating / numOfRatings;
+        return averageRating;
     }
 }

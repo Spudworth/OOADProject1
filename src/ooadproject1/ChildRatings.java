@@ -8,7 +8,7 @@ package ooadproject1;
 
 public class ChildRatings extends UserRatings{
     public ChildRatings(){
-        setNoOfRatings(0);
+        setNumOfRatings(0);
         setRating(0);
     }
 }

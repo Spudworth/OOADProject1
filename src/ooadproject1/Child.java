@@ -10,14 +10,11 @@ package ooadproject1;
  * @author Lenovo G50
  */
 public class Child extends Person {
-    int age;
-    int childId;
+    private int age;
+    private int childId;
     
     public Child()
     {
-        setUserName("Felicia");
-        chkIsChild(true);
-        chkIsAdmin(false);
-        setPassword("01234567");
+        
     }
 }

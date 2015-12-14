@@ -12,19 +12,29 @@ import java.awt.image.*;
  *
  * @author Lenovo G50
  */
-public class PlayableGame {
-    private String f;
-    private String t;
+public class PlayableGame extends Game{
+    private String gameName;
+    private String yearReleased;
+    private String gameDescription;
     private BufferedImage boxArt;
-    private int l;
+    private int ageRating;
+    
+    
     public PlayableGame(){
-       f = "N/A";
-       t = "Unknown";
-       l = 0;
+       gameName = "N/A";
+       yearReleased = "Unknown";
+       gameDescription = "No Description Available";
+       boxArt = null;
+       ageRating = 0;
     }
-    public PlayableGame(String f, String t, int l){
-        this.f = f;
-        this.t = t;
-        this.l = l;
+    
+    public PlayableGame(String gameName, String yearRealeased,String gameDescription,BufferedImage boxart, int ageRating){
+        this.gameName = gameName;
+        this.yearReleased = yearRealeased;
+        this.gameDescription = gameDescription;
+        this.boxArt = boxart;
+        this.ageRating = ageRating;
+        
+        
     }
 }
