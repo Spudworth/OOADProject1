@@ -110,7 +110,10 @@ public abstract class Game {
         playedChildIds.set(a, b);
     }
     
-    public void setChildComment(int childId){
+    public void setChildComment(String comment){
         
+        childComments = new ArrayList();
+        
+        childComments.add(comment);
     }
 }
