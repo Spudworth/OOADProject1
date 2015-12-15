@@ -4,47 +4,33 @@
  * and open the template in the editor.
  */
 package ooadproject1;
-
+import java.util.*;
 /**
  *
  * @author Lenovo G50
  */
 public abstract class UserRatings {
     float rating;
-    float totalRating;
     Stats myStats;
     int numOfRatings;
-    String comment;
+    TreeMap comments = new TreeMap();
 
-    public void sumbitRating(float rate){
-        setNumOfRatings(getNumOfRatings()+1);
-        totalRating += rate;
-        rating = myStats.getAverage(totalRating, getNumOfRatings());
+    public void setComment(int userId, String comment){
+        comments.put(userId, comment);
     }
-    public void submitRating(String ratingComment){
-        comment = ratingComment;
-    }
-    public void setRating(float rating)
-    {
-        this.rating = rating;
-    }
+   
     public void setNumOfRatings(int numOfRatings)
     {
         this.numOfRatings = numOfRatings;
     }
-    public void addToTotalRating(float totalRating)
-    {
-        this.totalRating = totalRating;
-    }
-    public float getRating()
-    {
-        return rating;
-    }
+    
+    public abstract float getRating();
+    
     public int getNumOfRatings()
     {
         return numOfRatings;
     }
-    public String getComment(){
-        return comment;
+    public String getComment(int userId){
+        return (String)comments.get(userId);
     }
 }

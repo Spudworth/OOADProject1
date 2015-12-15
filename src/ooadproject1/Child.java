@@ -9,7 +9,7 @@ package ooadproject1;
  *
  * @author Lenovo G50
  */
-public class Child extends Person {
+public class Child extends User {
     private int age;
     private int childId;
     

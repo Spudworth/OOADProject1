@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package ooadproject1;
-
+import java.util.*;
 /**
  *
  * @author Lenovo G50
@@ -14,5 +14,18 @@ public class Stats {
     {
         float averageRating = totaleRating / numOfRatings;
         return averageRating;
+    }
+    
+    public float getPercentageTrue(int numOfRatings, ArrayList<Boolean> approvals){
+        
+        int numTrue =0;
+        
+        for(int i = 0; i < numOfRatings; i++){
+            if(approvals.get(i)){
+                numTrue ++;
+            }
+        }
+        float percentage = numTrue/numOfRatings * 100;
+        return percentage;
     }
 }

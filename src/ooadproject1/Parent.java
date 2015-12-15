@@ -9,7 +9,7 @@ package ooadproject1;
  *
  * @author mrlyo
  */
-public class Parent extends Person {
+public class Parent extends User {
     
     int parentId;
     

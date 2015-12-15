@@ -9,7 +9,7 @@ package ooadproject1;
  *
  * @author Lenovo G50
  */
-public abstract class Person {
+public abstract class User {
     private String userName;
     private String passsword;
     private Boolean IsAdmin;

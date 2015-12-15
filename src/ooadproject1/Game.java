@@ -17,11 +17,32 @@ public abstract class Game {
     private String gameName;
     private String yearReleased;
     private String gameDescription;
-    private BufferedImage boxArt;
+    
     private int ageRating;
+    private ParentRatings parentRating;
     private ChildRatings childRating;
-    private ArrayList<String> childComments;
     private ArrayList<Integer> playedChildIds;
+    private ArrayList<Integer> ratedChildIds;
+    
+    
+    public Game() 
+    {
+        gameName = "Name not available";
+        yearReleased = "Date not available";
+        gameDescription = "Description not available";
+        ageRating = 0;  
+    }
+    
+    
+    public Game(String gameName, String yearReleased, String gameDescription, int ageRating) 
+    {
+        this.gameName = gameName;
+        this.yearReleased = yearReleased;
+        this.gameDescription = gameDescription;
+        this.ageRating = ageRating;
+        
+    }
+    
     
     public void play(int childId)
     {
@@ -30,13 +51,24 @@ public abstract class Game {
             setPlayedChildId(childId, childId);
         }
     }
+    
+    public boolean hasPartentalApproval(){
+        if(parentRating.getRating() < 80){
+            return false;
+        }
+        else
+            return true;
+    }
     public Boolean isAppropriateAge()
     {
         if(ageRating > 18){
         return true;}
         else return false;
     }
-    public Boolean hasPlayed(int childId){
+    
+    
+    public Boolean hasPlayed(int childId)
+    {
         if(playedChildIds.contains(childId)){
             return true;
         }
@@ -44,76 +76,114 @@ public abstract class Game {
             return false;    
     };
     
-    /*public String getChildComment(int childId){
-        if(playedChildIds.contains(childId)){
-            return comment;
-        }
-    }*/
     
-    public String getGameName() {
+    public String getChildComment(int childId){
+       return childRating.getComment(childId);
+        
+    }
+    
+     public String getParentComment(int parentId){
+       return parentRating.getComment(parentId);
+        
+    }
+    
+    public String getGameName() 
+    {
         return gameName;
     }
     
-    public String getYearReleased() {
+    
+    public String getYearReleased() 
+    {
         return yearReleased;
     }
     
-    public String getGameDescription(){
+    
+    public String getGameDescription()
+    {
         return gameDescription;
     }
-    
-    public BufferedImage getBoxArt()
+
+    public int getAgeRating() 
     {
-        return boxArt;
-    }
-    
-    public int getAgeRating() {
         return ageRating;
     }
      
-    public float getChildRatingAverage(){
+    
+    public float getChildRatingAverage()
+    {
         childRating = new ChildRatings();
         
         float average = childRating.totalRating / childRating.numOfRatings;
         
         return average;
     }
-     public void setGameName(String gameName)
+    
+    public  int getPlayedChildId(int index){
+        return playedChildIds.get(index);
+    }
+    public boolean hasChildRatedGame(int childId){
+        if(ratedChildIds.contains(childId)){
+            return true;
+        }
+        else
+            return false;
+    }
+    public void setGameName(String gameName)
     {
         this.gameName = gameName;
     }
+    
+    
     public void setYearReleased(String yearReleased)
     {
         this.yearReleased = yearReleased;
     }
+    
+    
     public void setGameDescription(String gameDesc)
     {
         gameDescription = gameDesc;
     }
+    
+    
     public void setAgeRating(int ageRate)
     {
         ageRating = ageRate;
     }
-    public void setBoxArt(BufferedImage boxArt)
-    {
-        this.boxArt = boxArt;
-    }
+    
+
+    
     public void sumbitChildRating(float rating, int childId)
     {
         if(playedChildIds.contains(childId))
         {
+            ratedChildIds.add(childId);
             childRating.sumbitRating(rating);
         }
     }
+    
+    public void submitParentRating(boolean rating, int parentId){
+        parentRating.sumbitRating(parentId, rating);
+    }
+    
     public void setPlayedChildId(int a, int b)
     {
         playedChildIds.set(a, b);
     }
     
-    public void setChildComment(String comment){
+    public void setChildComment(int childId, String comment){
         
-        childComments = new ArrayList();
-        
-        childComments.add(comment);
+        childRating.setComment(childId, comment);
     }
+    
+    public void setParentComment(int parentId, String comment){
+        
+        parentRating.setComment(parentId, comment);
+    }
+    
+    public void setRatedChild(int childId){
+        ratedChildIds.add(childId);
+    }
+
 }

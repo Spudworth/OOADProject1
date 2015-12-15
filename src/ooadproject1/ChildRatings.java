@@ -7,7 +7,36 @@ package ooadproject1;
 
 
 public class ChildRatings extends UserRatings{
+    public float totalRating;
+    
     public ChildRatings(){
         
+    }
+    
+
+    public void sumbitRating(float rate) 
+    {
+        setNumOfRatings(getNumOfRatings()+1);
+        totalRating += rate;
+        rating = myStats.getAverage(totalRating, getNumOfRatings());
+    }
+    
+    
+    public void setRating(float rating) 
+    {
+        totalRating = rating; 
+    }
+    
+    
+    public void addToTotalRating(float totalRating)
+    {
+        this.totalRating = totalRating;
+    }
+    
+    
+    @Override
+    public float getRating() 
+    {
+        return rating;   
     }
 }
