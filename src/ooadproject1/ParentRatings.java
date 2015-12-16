@@ -27,7 +27,11 @@ public class ParentRatings extends UserRatings {
         return approvalList;
     }
     
-    
+    @Override
+    public void setRating(float rating)
+    {
+      this.rating = rating;
+    } 
     @Override
     public float getRating() 
     {

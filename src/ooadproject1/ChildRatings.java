@@ -8,9 +8,12 @@ package ooadproject1;
 
 public class ChildRatings extends UserRatings{
     public float totalRating;
-    
+    private float minRating;
+    private float maxRating;
     public ChildRatings(){
-        
+        minRating = 0.0f;
+        maxRating = 100.0f;
+        rating =0;
     }
     
 
@@ -22,6 +25,7 @@ public class ChildRatings extends UserRatings{
     }
     
     
+    @Override
     public void setRating(float rating) 
     {
         totalRating = rating; 
@@ -33,6 +37,14 @@ public class ChildRatings extends UserRatings{
         this.totalRating = totalRating;
     }
     
+    public float getMinRating()
+    {
+        return minRating;
+    }
+    public float getMaxRating()
+    {
+        return maxRating;
+    }
     
     @Override
     public float getRating() 

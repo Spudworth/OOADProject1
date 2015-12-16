@@ -13,7 +13,7 @@ import java.util.*;
  *
  * @author Lenovo G50
  */
-public abstract class Game {
+public class Game {
     private String gameName;
     private String yearReleased;
     private String gameDescription;
@@ -23,14 +23,18 @@ public abstract class Game {
     private ChildRatings childRating;
     private ArrayList<Integer> playedChildIds;
     private ArrayList<Integer> ratedChildIds;
-    
+    private float minParentalApp = 80.0f;
     
     public Game() 
     {
         gameName = "Name not available";
         yearReleased = "Date not available";
         gameDescription = "Description not available";
-        ageRating = 0;  
+        ageRating = 0; 
+        childRating = new ChildRatings();
+        parentRating = new ParentRatings();
+        playedChildIds = new ArrayList<Integer>();
+        ratedChildIds = new ArrayList<Integer>();
     }
     
     
@@ -40,7 +44,10 @@ public abstract class Game {
         this.yearReleased = yearReleased;
         this.gameDescription = gameDescription;
         this.ageRating = ageRating;
-        
+        childRating = new ChildRatings();
+        parentRating = new ParentRatings();
+        playedChildIds = new ArrayList<Integer>();
+        ratedChildIds = new ArrayList<Integer>();
     }
     
     
@@ -53,15 +60,15 @@ public abstract class Game {
     }
     
     public boolean hasPartentalApproval(){
-        if(parentRating.getRating() < 80){
+        if(parentRating.getRating() < minParentalApp){
             return false;
         }
         else
             return true;
     }
-    public Boolean isAppropriateAge()
+    public Boolean isAppropriateAge( int age)
     {
-        if(ageRating > 18){
+        if(ageRating > ageRating){
         return true;}
         else return false;
     }
@@ -76,7 +83,17 @@ public abstract class Game {
             return false;    
     };
     
-    
+    public boolean isValidRating(float newRating)
+    {
+        if (newRating < childRating.getMaxRating() && newRating > childRating.getMinRating())
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
     public String getChildComment(int childId){
        return childRating.getComment(childId);
         
@@ -112,11 +129,7 @@ public abstract class Game {
     
     public float getChildRatingAverage()
     {
-        childRating = new ChildRatings();
-        
-        float average = childRating.totalRating / childRating.numOfRatings;
-        
-        return average;
+        return childRating.getRating();
     }
     
     public  int getPlayedChildId(int index){

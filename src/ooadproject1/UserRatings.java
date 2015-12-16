@@ -10,10 +10,10 @@ import java.util.*;
  * @author Lenovo G50
  */
 public abstract class UserRatings {
-    float rating;
-    Stats myStats;
-    int numOfRatings;
-    TreeMap comments = new TreeMap();
+    protected float rating;
+    protected Stats myStats = new Stats();
+    private int numOfRatings;
+    private TreeMap comments = new TreeMap();
 
     public void setComment(int userId, String comment){
         comments.put(userId, comment);
@@ -23,7 +23,7 @@ public abstract class UserRatings {
     {
         this.numOfRatings = numOfRatings;
     }
-    
+    public abstract void setRating(float rating);
     public abstract float getRating();
     
     public int getNumOfRatings()

@@ -10,6 +10,10 @@ import java.util.*;
  * @author Lenovo G50
  */
 public class Stats {
+    public Stats()
+    {
+        
+    }
     public float getAverage(float totaleRating, int numOfRatings)
     {
         float averageRating = totaleRating / numOfRatings;
